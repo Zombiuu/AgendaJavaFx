@@ -6,14 +6,16 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import modelo.Persona;
 import vista.controladorVistaEdicion;
 import vista.controladorVistaPrincipal;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 
 public class Main extends Application {
-
+	
     private static Stage stagePrincipal;
     private AnchorPane rootPane;
     controladorVistaPrincipal controller;
@@ -46,7 +48,7 @@ public class Main extends Application {
              * Añadidos las llamadas del main al Controlador y del controlador al main ***/
              controller=loader.getController();
             controller.setProgramaPrincipal(this);
-           
+           controller.setVistaEdicion(controller2);
 
             stagePrincipal.show();
         } catch (IOException e) {
@@ -73,11 +75,32 @@ public class Main extends Application {
             controller2 = loader.getController();
             controller2.setStagePrincipal(ventana);
             controller2.setVistaPrincipal(controller);
+            controller2.setPrincipalStage(this);
             ventana.show();
 
         } catch (Exception e) {
             //tratar la excepción
         }
+    }
+    
+    
+    
+    public void borrarFila(){
+    	Persona selectedItem = controller.getListAgenda().getSelectionModel().getSelectedItem();
+    	controller.getListAgenda().getItems().remove(selectedItem);
+
+    }
+    
+    public void nuevaPersona(){
+  
+		controller.getData().add(new Persona(controller2.getTxtNombre().getText(),controller2.getTxtApellido().getText(),controller2.getTxtTelefono().getText()));
+
+		controller.getListAgenda().setItems(controller.getData());
+		controller.getNombre().setCellValueFactory(new PropertyValueFactory<Persona,String>("Nombre"));
+		controller.getApellido().setCellValueFactory(new PropertyValueFactory<Persona,String>("Apellido"));
+		controller.getTelefono().setCellValueFactory(new PropertyValueFactory<Persona,String>("Telefono"));
+
+	
     }
 }
 

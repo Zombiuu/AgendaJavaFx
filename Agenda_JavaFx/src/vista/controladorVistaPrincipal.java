@@ -7,13 +7,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Persona;
 
 public class controladorVistaPrincipal {
 
 	private Main mainPrincipal;
 	private controladorVistaEdicion vistaEdicion;
+	
 
 	@FXML
 	private TableView<Persona> listAgenda;
@@ -27,6 +27,9 @@ public class controladorVistaPrincipal {
 	@FXML
 	private TableColumn<Persona, String> Telefono;
 
+	private ObservableList<Persona> data;
+	
+
 	@FXML
 	private Button btnNuevo;
 	@FXML
@@ -35,20 +38,27 @@ public class controladorVistaPrincipal {
 	private Button btnBorrar;
 
 	public void initialize() {
-
+		data = FXCollections.observableArrayList();
+		
 	}
 
 	@FXML
 	private void nuevaVentana() {
+		
 		this.mainPrincipal.mostrarVentanaEdicion();
 	}
-
+	
+	@FXML
+	private void nuevaVentanaEditar() {
+		
+		this.mainPrincipal.mostrarVentanaEdicion();
+	}
 	@FXML
 	private void borrarFila() {
-
-		Persona selectedItem = listAgenda.getSelectionModel().getSelectedItem();
-		listAgenda.getItems().remove(selectedItem);
-
+		
+		
+		mainPrincipal.borrarFila();
+		
 	}
 
 	public TableView<Persona> getListAgenda() {
@@ -90,5 +100,14 @@ public class controladorVistaPrincipal {
 	public void setTelefono(TableColumn<Persona, String> telefono) {
 		Telefono = telefono;
 	}
+	
+	public ObservableList<Persona> getData() {
+		return data;
+	}
+
+	public void setData(ObservableList<Persona> data) {
+		this.data = data;
+	}
+	
 
 }

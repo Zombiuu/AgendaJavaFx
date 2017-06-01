@@ -17,6 +17,7 @@ public class controladorVistaEdicion {
 	
 	private Main principalStage;
 	private controladorVistaPrincipal vistaPrincipal;
+	
 	private Stage ventana;
 	@FXML
 	private Button btnAceptar;
@@ -33,10 +34,9 @@ public class controladorVistaEdicion {
 	
 	private String nombre,apellido,telefono;
 	
-	private ObservableList<Persona> data;
+	
 	
 	public void setStagePrincipal(Stage ventana) {
-		// TODO Auto-generated method stub
 		this.ventana = ventana;
 	}
 	
@@ -45,29 +45,57 @@ public class controladorVistaEdicion {
 	}
 	
 	public void nuevaPersona(){
-				if(data == null)
-				data = FXCollections.observableArrayList();
-				
-				data.add(new Persona(txtNombre.getText(),txtApellido.getText(),txtTelefono.getText()));
-				vistaPrincipal.getListAgenda().setItems(data);
-				vistaPrincipal.getNombre().setCellValueFactory(new PropertyValueFactory<Persona,String>("Nombre"));
-				vistaPrincipal.getApellido().setCellValueFactory(new PropertyValueFactory<Persona,String>("Apellido"));
-				vistaPrincipal.getTelefono().setCellValueFactory(new PropertyValueFactory<Persona,String>("Telefono"));
-			
-			
 		
-		
-		
+		principalStage.nuevaPersona();
+	
+		    	
+//		vistaPrincipal.getData().add(new Persona(txtNombre.getText(),txtApellido.getText(),txtTelefono.getText()));				
+//		vistaPrincipal.getListAgenda().setItems(vistaPrincipal.getData());	
+//		vistaPrincipal.getNombre().setCellValueFactory(new PropertyValueFactory<Persona,String>("Nombre"));
+//		vistaPrincipal.getApellido().setCellValueFactory(new PropertyValueFactory<Persona,String>("Apellido"));
+//		vistaPrincipal.getTelefono().setCellValueFactory(new PropertyValueFactory<Persona,String>("Telefono"));
+
 	//	vistaPrincipal.setData(data);
 			//Persona persona = new  Persona
 			
 		
 	}
 
+	public Main getPrincipalStage() {
+		return principalStage;
+	}
+
+	public void setPrincipalStage(Main principalStage) {
+		this.principalStage = principalStage;
+	}
+
 	public void setVistaPrincipal(controladorVistaPrincipal vistaPrincipal) {
 		this.vistaPrincipal = vistaPrincipal;
 	}
 
-	
+	public TextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(TextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public TextField getTxtApellido() {
+		return txtApellido;
+	}
+
+	public void setTxtApellido(TextField txtApellido) {
+		this.txtApellido = txtApellido;
+	}
+
+	public TextField getTxtTelefono() {
+		return txtTelefono;
+	}
+
+	public void setTxtTelefono(TextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
+	}
+
 	
 }
