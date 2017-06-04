@@ -12,11 +12,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import modelo.Persona;
 
-public class controladorVistaEdicion {
+public class controladorVistaEdicion2 {
 	
 	
 	private Main principalStage;
 	private controladorVistaPrincipal vistaPrincipal;
+	private Persona persona;
 	
 	private Stage ventana;
 	@FXML
@@ -31,7 +32,7 @@ public class controladorVistaEdicion {
 	private TextField txtApellido;
 	@FXML
 	private TextField txtTelefono;
-	
+	int index;
 	private String nombre,apellido,telefono;
 	
 	
@@ -54,6 +55,12 @@ public class controladorVistaEdicion {
 		return principalStage;
 	}
 	
+	public void editarPersona(){
+		
+		principalStage.editarPersona();
+		
+		
+	}
 
 	public void setPrincipalStage(Main principalStage) {
 		this.principalStage = principalStage;
