@@ -20,7 +20,7 @@
                     </columns>
                   </TableView>
                   <Button fx:id="btnNuevo" layoutX="130.0" layoutY="343.0" mnemonicParsing="false" onAction="#nuevaVentana" text="Nuevo" />
-                  <Button layoutX="256.0" layoutY="343.0" mnemonicParsing="false" onAction="#nuevaVentana" text="Editar" />
+                  <Button fx:id="btnEditar" layoutX="256.0" layoutY="343.0" mnemonicParsing="false" onAction="#nuevaVentanaEditar" text="Editar" />
                   <Button fx:id="btnBorrar" layoutX="383.0" layoutY="343.0" mnemonicParsing="false" onAction="#borrarFila" text="Borrar" />
                </children>
             </AnchorPane>

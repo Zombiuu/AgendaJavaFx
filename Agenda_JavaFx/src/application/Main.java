@@ -85,6 +85,9 @@ public class Main extends Application {
     
     
     
+    
+    
+    
     public void borrarFila(){
     	Persona selectedItem = controller.getListAgenda().getSelectionModel().getSelectedItem();
     	controller.getListAgenda().getItems().remove(selectedItem);
@@ -92,15 +95,39 @@ public class Main extends Application {
     }
     
     public void nuevaPersona(){
-  
 		controller.getData().add(new Persona(controller2.getTxtNombre().getText(),controller2.getTxtApellido().getText(),controller2.getTxtTelefono().getText()));
-
 		controller.getListAgenda().setItems(controller.getData());
 		controller.getNombre().setCellValueFactory(new PropertyValueFactory<Persona,String>("Nombre"));
 		controller.getApellido().setCellValueFactory(new PropertyValueFactory<Persona,String>("Apellido"));
 		controller.getTelefono().setCellValueFactory(new PropertyValueFactory<Persona,String>("Telefono"));
 
 	
+    }
+    
+    public void editarPersona( ){
+    	Persona persona = controller.getListAgenda().getSelectionModel().getSelectedItem();
+    	if(persona != null){
+    	controller2.getTxtNombre().setText(persona.getNombre());
+    	controller2.getTxtApellido().setText(persona.getApellido());
+    	controller2.getTxtTelefono().setText(persona.getTelefono());
+    	}
+//    	Persona persona = controller.getListAgenda().getSelectionModel().getSelectedItem();
+//    	 if (persona != null) {
+//    	        // Fill the labels with info from the person object.
+//    	        controller2.getTxtNombre().setText(persona.getNombre());
+//    	        controller2.getTxtApellido().setText(persona.getApellido());
+//    	        controller2.getTxtTelefono().setText(persona.getTelefono());
+//    	     
+//
+//    	        // TODO: We need a way to convert the birthday into a String! 
+//    	        // birthdayLabel.setText(...);
+//    	    } else {
+//    	        // Person is null, remove all the text.
+//    	    	   controller2.getTxtNombre().setText("");
+//    	    	   controller2.getTxtApellido().setText("");
+//    	    	   controller2.getTxtTelefono().setText("");
+//    	       
+//    	    }
     }
 }
 

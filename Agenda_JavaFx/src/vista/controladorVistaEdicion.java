@@ -45,19 +45,8 @@ public class controladorVistaEdicion {
 	}
 	
 	public void nuevaPersona(){
-		
-		principalStage.nuevaPersona();
-	
-		    	
-//		vistaPrincipal.getData().add(new Persona(txtNombre.getText(),txtApellido.getText(),txtTelefono.getText()));				
-//		vistaPrincipal.getListAgenda().setItems(vistaPrincipal.getData());	
-//		vistaPrincipal.getNombre().setCellValueFactory(new PropertyValueFactory<Persona,String>("Nombre"));
-//		vistaPrincipal.getApellido().setCellValueFactory(new PropertyValueFactory<Persona,String>("Apellido"));
-//		vistaPrincipal.getTelefono().setCellValueFactory(new PropertyValueFactory<Persona,String>("Telefono"));
 
-	//	vistaPrincipal.setData(data);
-			//Persona persona = new  Persona
-			
+		principalStage.nuevaPersona();		
 		
 	}
 

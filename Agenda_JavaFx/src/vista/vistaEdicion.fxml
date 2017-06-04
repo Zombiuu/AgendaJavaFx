@@ -14,6 +14,6 @@
       <TextField fx:id="txtApellido" layoutX="134.0" layoutY="69.0" />
       <TextField fx:id="txtTelefono" layoutX="134.0" layoutY="105.0" />
       <Button fx:id="btnAceptar" layoutX="85.0" layoutY="185.0" mnemonicParsing="false" onAction="#nuevaPersona" text="Aceptar" />
-      <Button fx:id="btnCancelar" layoutX="194.0" layoutY="185.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btnCancelar" layoutX="194.0" layoutY="185.0" mnemonicParsing="false" onAction="#closeWindow" text="Cancelar" />
    </children>
 </AnchorPane>

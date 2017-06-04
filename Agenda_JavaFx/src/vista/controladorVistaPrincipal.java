@@ -29,7 +29,7 @@ public class controladorVistaPrincipal {
 
 	private ObservableList<Persona> data;
 	
-
+	
 	@FXML
 	private Button btnNuevo;
 	@FXML
@@ -50,8 +50,8 @@ public class controladorVistaPrincipal {
 	
 	@FXML
 	private void nuevaVentanaEditar() {
-		
 		this.mainPrincipal.mostrarVentanaEdicion();
+		this.mainPrincipal.editarPersona();
 	}
 	@FXML
 	private void borrarFila() {
@@ -60,6 +60,8 @@ public class controladorVistaPrincipal {
 		mainPrincipal.borrarFila();
 		
 	}
+	
+	
 
 	public TableView<Persona> getListAgenda() {
 		return listAgenda;
