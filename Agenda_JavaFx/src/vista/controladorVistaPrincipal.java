@@ -16,7 +16,31 @@ public class controladorVistaPrincipal {
 	private Main mainPrincipal;
 	private controladorVistaEdicion vistaEdicion;
 	private controladorVistaEdicion2 vistaEdicion2;
-	
+
+	@FXML
+	private TableView<Persona> listAgenda;
+
+	@FXML
+	private TableColumn<Persona, String> Nombre;
+
+	@FXML
+	private TableColumn<Persona, String> Apellido;
+
+	@FXML
+	private TableColumn<Persona, String> Telefono;
+	@FXML
+	private ObservableList<Persona> data;
+	@FXML
+	private Button btnNuevo;
+	@FXML
+	private Button btnEditar;
+	@FXML
+	private Button btnBorrar;
+
+	public void initialize() {
+		data = FXCollections.observableArrayList();
+
+	}
 
 	public void setStagePrincipal(Stage ventana) {
 		vistaEdicion2.setStagePrincipal(ventana);
@@ -46,53 +70,24 @@ public class controladorVistaPrincipal {
 		vistaEdicion2.editarPersona();
 	}
 
-
-
-	@FXML
-	private TableView<Persona> listAgenda;
-
-	@FXML
-	private TableColumn<Persona, String> Nombre;
-
-	@FXML
-	private TableColumn<Persona, String> Apellido;
-
-	@FXML
-	private TableColumn<Persona, String> Telefono;
-	@FXML
-	private ObservableList<Persona> data;
-	@FXML
-	private Button btnNuevo;
-	@FXML
-	private Button btnEditar;
-	@FXML
-	private Button btnBorrar;
-
-	public void initialize() {
-		data = FXCollections.observableArrayList();
-		
-	}
-
 	@FXML
 	private void nuevaVentana() {
-		
+
 		this.mainPrincipal.mostrarVentanaEdicion();
 	}
-	
+
 	@FXML
 	private void nuevaVentanaEditar() {
 		this.mainPrincipal.mostrarVentanaEdicion2();
 		this.mainPrincipal.mostrarPersona();
 	}
+
 	@FXML
 	private void borrarFila() {
-		
-		
+
 		mainPrincipal.borrarFila();
-		
+
 	}
-	
-	
 
 	public TableView<Persona> getListAgenda() {
 		return listAgenda;
@@ -109,7 +104,6 @@ public class controladorVistaPrincipal {
 	public void setVistaEdicion(controladorVistaEdicion vistaEdicion) {
 		this.vistaEdicion = vistaEdicion;
 	}
-	
 
 	public void setVistaEdicion2(controladorVistaEdicion2 vistaEdicion2) {
 		this.vistaEdicion2 = vistaEdicion2;
@@ -138,7 +132,7 @@ public class controladorVistaPrincipal {
 	public void setTelefono(TableColumn<Persona, String> telefono) {
 		Telefono = telefono;
 	}
-	
+
 	public ObservableList<Persona> getData() {
 		return data;
 	}
@@ -146,6 +140,7 @@ public class controladorVistaPrincipal {
 	public void setData(ObservableList<Persona> data) {
 		this.data = data;
 	}
+
 	public void setPrincipalStage(Main principalStage) {
 		vistaEdicion2.setPrincipalStage(principalStage);
 	}
